@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Slabo+27px"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header></header>
+    <section>
+      <h1>Which weapon suits You?</h1>
+      <div id="article-list">
+        <article>
+          <p>
+            Are you new in Monster Hunter World games? 
+          </br>
+            Or do you feel like your
+            current weapon doesn't suits You?
+          </br>
+            Hit the start button and answer
+            the question to get the Best Recommendation Weapon for you!
+          </p>
+        </article>
+        <button id="start" onclick="show('question')">Start</button>
+      </div>
+    </section >
+      
+    <section id="question">
+      <div id="article-list">
+      </form>
+        <article>
+          <h2>
+            What difficulty do you like?
+          </h2>
+          <p>Not everyone love the ez way, tell us how love you are to be challenged</p>
+          <div id="answerlist">
+            <div>
+            <input type="radio" id="easy" name="difficulty" value="easy">
+            <label for="easy">Easy</label>
+          </div>
+          <div>
+            <input type="radio" id="medium" name="difficulty" value="medium">
+            <label for="medium">Medium</label>
+          </div>
+          <div>
+            <input type="radio" id="hard" name="difficulty" value="hard">
+            <label for="hard">Hard</label>
+          </div>
+          </div>
+        </article>
+        <article>
+          <h2>
+            What playstyle do you love to play?
+          </h2>
+          <p>Everyone have different playstyle, are you prefer to move fast?
+          </br>Or you are good for slow movement?
+          </br> Or do you up for more challenging with Technic?</p>
+          <div id="answerlist">
+            <div>
+            <input type="radio" id="light" name="playstyle" value="light">
+            <label for="light">Light</label>
+          </div>
+          <div>
+            <input type="radio" id="heavy" name="playstyle" value="heavy">
+            <label for="heavy">Heavy</label>
+          </div>
+          <div>
+            <input type="radio" id="technic" name="playstyle" value="technic">
+            <label for="technic">Technic</label>
+          </div>
+          </div>
+        </article>
+        <article>
+          <h2>
+            What type of role do you interest with?
+          </h2>
+          <p>
+            Do you like to play as support role? (Support are not recoomended for solo player)
+          </br>
+            Do you like to having high defense?
+            </br>
+              Or you all in for Damage?
+          </p>
+          <div id="answerlist">
+            <div>
+            <input type="radio" id="support" name="type" value="support">
+            <label for="support">Support</label>
+          </div>
+          <div>
+            <input type="radio" id="defense" name="type" value="defense">
+            <label for="defense">Defense</label>
+          </div>
+          <div>
+            <input type="radio" id="damage" name="type" value="damage">
+            <label for="damage">Damage</label>
+          </div>
+          </div>
+        </article>
+        <input type="submit" id="submit" onclick="show('result')"></input>
+      </form>
+      </div>
+    </section>
+
+    <section id="result">
+      <div id="article-list">
+        <article>
+          asdasdssadsadasa
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <h4 id="copyright">&copy; 2020 by NzStefano</h4>
+      </br>
+      <a href="https://instagram.com/NzStefano">
+      <hr5>Instagram</hr5>
+      </a>
+      </br>
+      <a href="https://Twitter.com/NzStefano">
+      <hr5>Twitter</hr5>
+      </a>
+      </footer>
+      <script src="index.js"></script>
+  </body>
+</html>
