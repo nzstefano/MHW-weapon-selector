@@ -161,6 +161,15 @@ const combinedFunction = () => {
   const result3 = check(answer3);
   const result4 = check(answer4);
 
+  //if the user didn't answer 1 of the question
+  if (!result1 || !result2 || !result3 || !result4) {
+    let titleText = document.createElement("H2");
+    let title = document.createTextNode(`Please fill all the answer`);
+    titleText.appendChild(title);
+    document.getElementById("result").appendChild(titleText);
+    return;
+  }
+
   const final = result(result1, result2, result3, result4);
 
   // belom nemuin logic yg cocok untuk menampilkan gambar jika jawaban lebih dari 1
