@@ -12,7 +12,7 @@
     <header></header>
     <section>
       <h1>Which weapon suits You?</h1>
-      <div id="article-list">
+      <div id="headline">
         <article>
           <p>
             Are you new in Monster Hunter World games? 
@@ -29,13 +29,13 @@
     </section >
       
     <section id="question">
-      <div id="article-list">
-      </form>
+      <form>
+        <div id="article-list">
         <article>
           <h2>
             What difficulty do you like?
           </h2>
-          <p>Not everyone love the ez way, tell us how love you are to be challenged</p>
+          <p>Not everyone love the ez way, tell us how much do you enjoy challenge</p>
           <div id="answerlist">
             <div>
             <input type="radio" id="easy" name="difficulty" value="easy">
@@ -55,9 +55,9 @@
           <h2>
             What playstyle do you love to play?
           </h2>
-          <p>Everyone have different playstyle, are you prefer to move fast?
-          </br>Or you are good for slow movement?
-          </br> Or do you up for more challenging with Technic?</p>
+          <p>Everyone have different playstyle, do you prefer to move fast?
+          </br> Are you fine with slow movement?
+          </br> Or are you up for more Technical challenge?</p>
           <div id="answerlist">
             <div>
             <input type="radio" id="light" name="playstyle" value="light">
@@ -75,14 +75,14 @@
         </article>
         <article>
           <h2>
-            What type of role do you interest with?
+            What type of role are you interest with?
           </h2>
           <p>
-            Do you like to play as support role? (Support are not recoomended for solo player)
+            Do you like to play as support role? (Support are not recommended for solo player)
           </br>
-            Do you like to having high defense?
+            Do you like to have high defense?
             </br>
-              Or you all in for Damage?
+              Or are you all-in for Damage?
           </p>
           <div id="answerlist">
             <div>
@@ -99,15 +99,35 @@
           </div>
           </div>
         </article>
-        <input type="submit" id="submit" onclick="show('result')"></input>
-      </form>
+        <article>
+          <h2>
+            Whats the most important answer for you?
+          </h2>
+          <div id="answerlist">
+            <div>
+            <input type="radio" id="difficulty" name="important" value="difficulty">
+            <label for="difficulty">Difficulty</label>
+          </div>
+          <div>
+            <input type="radio" id="playstyle" name="important" value="playstyle">
+            <label for="playstyle">Playstyle</label>
+          </div>
+          <div>
+            <input type="radio" id="type" name="important" value="type">
+            <label for="type">Type</label>
+          </div>
+          </div>
+        </article>
+        <input type="button" value="Submit" id="submit" onclick="combinedFunction()"></input>
       </div>
+      </form>
     </section>
 
-    <section id="result">
+    <section id="resultDiv">
       <div id="article-list">
-        <article>
-          asdasdssadsadasa
+        <article id="result">
+          <img id="picResult"/>
+
         </article>
       </div>
     </section>

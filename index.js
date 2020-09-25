@@ -1,80 +1,91 @@
+//function to show hidden
 function show(el) {
   document.getElementById(el).style.display = "block";
 }
 
+//function to hide
+function hide(el) {
+  document.getElementById(el).style.display = "none";
+}
+
+//weapon database
 const weaponDetail = {
-  longsword: {
+  "Long Sword": {
     playstyle: "technic",
     difficulty: "hard",
     type: "damage",
+    img: "lspict",
   },
-  dualblades: {
+  "Dual Blades": {
     playstyle: "light",
     difficulty: "medium",
     type: "damage",
   },
-  greatsword: {
+  Greatsword: {
     playstyle: "heavy",
     difficulty: "hard",
     type: "damage",
   },
-  swordnshield: {
+  "Sword And Shield": {
     playstyle: "light",
     difficulty: "easy",
     type: "defend",
   },
-  hammer: {
+  Hammer: {
     playstyle: "heavy",
     difficulty: "hard",
     type: "support",
   },
-  huntinghorn: {
+  "Hunting Horn": {
     playstyle: "technic",
     difficulty: "medium",
     type: "support",
   },
-  lance: {
+  Lance: {
     playstyle: "heavy",
     difficulty: "easy",
     type: "defend",
   },
-  gunlance: {
+  Gunlance: {
     playstyle: "heavy",
     difficulty: "medium",
     type: "damage",
   },
-  switchaxe: {
+  Switchaxe: {
     playstyle: "technic",
     difficulty: "medium",
     type: "damage",
   },
-  chargeblade: {
+  Chargeblade: {
     playstyle: "technic",
     difficulty: "medium",
     type: "damage",
   },
-  insectglaive: {
+  "Insect Glaive": {
     playstyle: "technic",
     difficulty: "hard",
     type: "damage",
+    img: "igpict",
   },
-  bow: {
+  Bow: {
     playstyle: "technic",
     difficulty: "medium",
     type: "damage",
   },
-  lightbowgun: {
+  "Light Bowgun": {
     playstyle: "light",
     difficulty: "easy",
     type: "damage",
+    img: "lbpict",
   },
-  heavybowgun: {
+  "Heavy Bowgun": {
     playstyle: "heavy",
     difficulty: "easy",
     type: "damage",
   },
 };
 
+// function to calculate point for each answer
 const result = (answer1, answer2, answer3, answer4) => {
   let print = [];
   for (const key in weaponDetail) {
@@ -82,30 +93,24 @@ const result = (answer1, answer2, answer3, answer4) => {
     temp.name = key;
     temp.value = 0;
     if (answer1 === weaponDetail[key].difficulty) {
-      if (answer4 === weaponDetail[key].difficulty) {
-        temp.value += 5;
-        // } else if (answer4[1] === weaponDetail[key].difficulty) {
-        //   temp.value += 2;
+      if (answer4 === "difficulty") {
+        temp.value += 3;
       } else {
-        temp.value += 2;
+        temp.value += 1;
       }
     }
     if (answer2 === weaponDetail[key].playstyle) {
-      if (answer4 === weaponDetail[key].playstyle) {
-        temp.value += 5;
-        // } else if (answer4[1] === weaponDetail[key].playstyle) {
-        //   temp.value += 2;
+      if (answer4 === "playstyle") {
+        temp.value += 3;
       } else {
-        temp.value += 2;
+        temp.value += 1;
       }
     }
     if (answer3 === weaponDetail[key].type) {
-      if (answer4 === weaponDetail[key].type) {
-        temp.value += 5;
-        // } else if (answer4[1] === weaponDetail[key].type) {
-        //   temp.value += 2;
+      if (answer4 === "type") {
+        temp.value += 3;
       } else {
-        temp.value += 2;
+        temp.value += 1;
       }
     }
     print.push(temp);
@@ -115,18 +120,57 @@ const result = (answer1, answer2, answer3, answer4) => {
     return b.value - a.value;
   });
 
-  // return print;
   if (print[0].value > print[1].value) {
-    return [print[0].name];
+    return print[0].name;
   } else if (print[0].value === print[1].value) {
     if (print[1].value === print[2].value) {
-      return [print[0].name, print[1].name, print[2].name];
+      return `${print[0].name}, ${print[1].name}, ${print[2].name}`;
     } else {
-      return [print[0].name, print[1].name];
+      return `${print[0].name}, ${print[1].name}`;
     }
   }
 };
 
-console.log(result("easy", "light", "defense", "light"));
-console.log(result("normal", "technic", "support", "normal"));
-console.log(result("medium", "heavy", "defense", "defense"));
+//check if radio is checked
+const check = (value) => {
+  let print = "";
+  for (var i = 0, length = value.length; i < length; i++) {
+    if (value[i].checked) {
+      print += value[i].value;
+      break;
+    }
+  }
+  return print;
+};
+
+//final function, to hide things and show the final result
+const combinedFunction = () => {
+  hide("question");
+  hide("headline");
+  hide("start");
+  show("resultDiv");
+  show("result");
+
+  let answer1 = document.getElementsByName("difficulty");
+  let answer2 = document.getElementsByName("playstyle");
+  let answer3 = document.getElementsByName("type");
+  let answer4 = document.getElementsByName("important");
+
+  const result1 = check(answer1);
+  const result2 = check(answer2);
+  const result3 = check(answer3);
+  const result4 = check(answer4);
+
+  const final = result(result1, result2, result3, result4);
+
+  // belom nemuin logic yg cocok untuk menampilkan gambar jika jawaban lebih dari 1
+
+  // document
+  //   .getElementById("picResult")
+  //   .classList.add(`${weaponDetail[final].img}`);
+
+  let titleText = document.createElement("H2");
+  let title = document.createTextNode(`${final}`);
+  titleText.appendChild(title);
+  document.getElementById("result").appendChild(titleText);
+};

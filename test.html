@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="nama"/>
+    <input type="submit" id="submit" onclick="combinedFunction()"></input>
+    <h1 id="result" style="display: none;">tadaaa</h1>
+    <h2 id="result2"></h2>
+    <script>
+        function show(el) {
+            document.getElementById(el).style.display = "block";
+        }
+        const result = (answer1) => {
+                return `hasilnya adalah ${answer1}`
+        };
+
+        const combinedFunction = () => {
+            show("result");
+            let nama = document.getElementById("nama").value
+            let hasil = result(nama)
+            let titleText = document.createElement("H2");
+            let title = document.createTextNode(`${result(hasil)}`);
+            titleText.appendChild(title);
+            document.getElementById("result").appendChild(titleText);
+        };
+    </script>
+</body>
+</html>
